@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import BottomNavBar from "../../components/shared/BottomNavBar";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
@@ -14,6 +15,7 @@ import {
   colors,
   Tag,
 } from "../../Styles";
+import routes from "../../Routes";
 
 interface Props {}
 
@@ -23,7 +25,7 @@ export default function BookingPage(props: Props) {
   return (
     <Container>
       <Heading>막걸리 찬가</Heading>
-      <SelectionBoxBooking>
+      <SelectionBoxBooking onClick={() => setIsSelected1(!isSelected1)}>
         <SelectionMainTextBooking>
           다음주 수요일 오후 4시
           <TagBooking>
@@ -32,10 +34,14 @@ export default function BookingPage(props: Props) {
         </SelectionMainTextBooking>
         <SelectionSubTextBooking>5명 참가예정</SelectionSubTextBooking>
         <CheckIcon>
-          <FontAwesomeIcon icon={faCheckCircle} color={colors.MidBlue} />
+          {isSelected1 ? (
+            <FontAwesomeIcon icon={faCheckCircle} color={colors.MidBlue} />
+          ) : (
+            <FontAwesomeIcon icon={faCircle} color={colors.LightGray} />
+          )}
         </CheckIcon>
       </SelectionBoxBooking>
-      <SelectionBoxBooking>
+      <SelectionBoxBooking onClick={() => setIsSelected2(!isSelected2)}>
         <SelectionMainTextBooking>
           다음주 수요일 오후 4시
           <TagBooking>
@@ -44,7 +50,11 @@ export default function BookingPage(props: Props) {
         </SelectionMainTextBooking>
         <SelectionSubTextBooking>7명 참가예정</SelectionSubTextBooking>
         <CheckIcon>
-          <FontAwesomeIcon icon={faCircle} color={colors.LightGray} />
+          {isSelected2 ? (
+            <FontAwesomeIcon icon={faCheckCircle} color={colors.MidBlue} />
+          ) : (
+            <FontAwesomeIcon icon={faCircle} color={colors.LightGray} />
+          )}
         </CheckIcon>
       </SelectionBoxBooking>
       <Instruction>
@@ -61,7 +71,13 @@ export default function BookingPage(props: Props) {
           단톡이 만들어지기전에 적어주신 전화번호로 연락을 드릴게요!
         </InstructionDetail>
       </Instruction>
-      <MainBtnBooking>놀러가기</MainBtnBooking>
+      {isSelected1 || isSelected2 ? (
+        <Link to={routes.bookingconfirm} style={{ textDecoration: "none" }}>
+          <EnabledMainBtnBooking>놀러가기</EnabledMainBtnBooking>
+        </Link>
+      ) : (
+        <DisabledMainBtnBooking>놀러가기</DisabledMainBtnBooking>
+      )}
       <BottomNavBar selectedItem="feed" />
     </Container>
   );
@@ -78,9 +94,15 @@ const SelectionBoxBooking = styled(SelectionBox)`
   font-size: 24px;
 `;
 
-const MainBtnBooking = styled(MainBtn)`
+const EnabledMainBtnBooking = styled(MainBtn)`
   margin-top: 30px;
   width: 90%;
+`;
+
+const DisabledMainBtnBooking = styled(MainBtn)`
+  margin-top: 30px;
+  width: 90%;
+  background-color: ${colors.LightGray};
 `;
 
 const SelectionMainTextBooking = styled(SelectionMainText)`

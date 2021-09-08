@@ -4,6 +4,8 @@ const routes = {
   friends: "/friends",
   mypage: "/mypage",
   booking: "/booking",
+  bookingconfirm: "/bookingconfirm",
+  request: "/request",
 };
 
 export default routes;

@@ -9,6 +9,7 @@ import routes from "./Routes";
 import FriendsPage from "./pages/friends/FriendsPage";
 import MyPage from "./pages/mypage/MyPage";
 import BookingPage from "./pages/place/BookingPage";
+import BookingConfirmPage from "./pages/place/BookingConfirmPage";
 
 function App() {
   return (
@@ -31,6 +32,12 @@ function App() {
             </Route>
             <Route path={routes.booking}>
               <BookingPage />
+            </Route>
+            <Route path={routes.bookingconfirm}>
+              <BookingConfirmPage />
+            </Route>
+            <Route path={routes.request}>
+              <RequestPage />
             </Route>
           </Switch>
         </Router>

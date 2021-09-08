@@ -62,6 +62,7 @@ export const MainBtn = styled.div`
   justify-content: center;
   align-items: center;
   filter: drop-shadow(16px 16px 20px rgba(75, 88, 208, 0.5));
+  font-weight: bold;
   color: white;
   p {
     color: white;
@@ -89,6 +90,14 @@ export const SelectionMainText = styled.div`
 `;
 
 export const SelectionSubText = styled.div`
+  margin-top: 8px;
+  color: #a7b0c0;
+  font-weight: 400;
+  font-size: 13px;
+  margin-left: 32px;
+`;
+
+export const SubText = styled.div`
   margin-top: 8px;
   color: #a7b0c0;
   font-weight: 400;
@@ -137,4 +146,11 @@ transform: translateX(-8px); */
     font-weight: 700;
     font-size: 11px;
   }
+`;
+
+export const Avartar = styled.img`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
 `;

@@ -47,7 +47,9 @@ export default function FeedPage(props: Props) {
               value={options[0]}
             />
           </div>
-          <RequestP>식탁 건의하기</RequestP>
+          <Link to={routes.request} style={{ textDecoration: "none" }}>
+            <RequestP>식탁 건의하기</RequestP>
+          </Link>
         </TopWrapper>
       </Top>
       <Header src={MainPicDummy}>
@@ -100,7 +102,7 @@ const TopWrapper = styled.div`
   margin-top: 10px;
 `;
 
-const RequestP = styled.p`
+const RequestP = styled.div`
   font-size: 16px;
   font-weight: 600;
   color: ${colors.MidGray};
