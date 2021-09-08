@@ -12,6 +12,8 @@ import HeaderTextDescription from "../../components/shared/Header/HeaderTextDesc
 import Feed from "../../components/feed/Feed";
 import { feedDummyData } from "../../dummyResources/dummyData";
 import BottomNavBar from "../../components/shared/BottomNavBar";
+import { Link } from "react-router-dom";
+import routes from "../../Routes";
 
 const options: Option[] = [
   {
@@ -56,22 +58,25 @@ export default function FeedPage(props: Props) {
       </Header>
       {feedDummyData.map((item) => {
         return (
-          <Feed
-            placeImgSrc={item.placeImgSrc}
-            feedParticipant={item.feedParticipant}
-            feedClosed={item.feedClosed}
-            feedHeading={item.feedHeading}
-            feedDetail={item.feedDetail}
-            feedLocation={item.feedLocation}
-            feedTime={item.feedTime}
-            feedCondition={item.feedCondition}
-            feedTag={item.feedTag}
-          ></Feed>
+          <Link
+            to={routes.place}
+            style={{ textDecoration: "none", color: colors.Black }}
+          >
+            <Feed
+              placeImgSrc={item.placeImgSrc}
+              feedParticipant={item.feedParticipant}
+              feedClosed={item.feedClosed}
+              feedHeading={item.feedHeading}
+              feedDetail={item.feedDetail}
+              feedLocation={item.feedLocation}
+              feedTime={item.feedTime}
+              feedCondition={item.feedCondition}
+              feedTag={item.feedTag}
+            ></Feed>
+          </Link>
         );
       })}
-      <div style={{ width: "100%", height: "75px" }}>
-        <BottomNavBar />
-      </div>
+      <BottomNavBar selectedItem="feed" />
     </Container>
   );
 }
@@ -80,6 +85,11 @@ const Top = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  position: --webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background-color: white;
 `;
 
 const TopWrapper = styled.div`

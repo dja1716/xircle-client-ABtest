@@ -16,7 +16,7 @@ export const GlobalStyles = createGlobalStyle`
     ${reset}
    p, a, span, h3, h4, div {
      font-family: "Spoqa Han Sans Neo", "Spoqa Han Sans JP", sans-serif;
-     font-color: "#12121D";
+     color: "#12121D";
    }
 `;
 
@@ -42,4 +42,99 @@ export const AppContainer = styled.div`
 
 export const Container = styled.div`
   width: 100%;
+`;
+
+export const ProcedureHeading = styled.div`
+  font-weight: bold;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+`;
+
+export const MainBtn = styled.div`
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 50px;
+  background-color: #18a0fb;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(16px 16px 20px rgba(75, 88, 208, 0.5));
+  color: white;
+  p {
+    color: white;
+  }
+`;
+
+export const SelectionBox = styled.div`
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 90px;
+  background-color: white;
+  /* justify-content: center; */
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 2px 28px rgba(75, 88, 208, 0.15);
+  border-radius: 8px;
+`;
+
+export const SelectionMainText = styled.div`
+  color: #12121d;
+  font-weight: 500;
+  font-size: 14px;
+`;
+
+export const SelectionSubText = styled.div`
+  margin-top: 8px;
+  color: #a7b0c0;
+  font-weight: 400;
+  font-size: 13px;
+  margin-left: 32px;
+`;
+
+export const SpaceForNavBar = styled.div`
+  width: 100%;
+  height: 100px;
+`;
+
+export const BottomNavBarContainer = styled.div`
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 50;
+  bottom: 0;
+  background-color: white;
+  filter: drop-shadow(16px 16px 20px rgba(75, 88, 208, 0.15));
+`;
+
+export const BottomFixedButtonContainer = styled(BottomNavBarContainer)`
+  width: 375px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Tag = styled.div`
+  position: absolute;
+  background-color: ${colors.MidBlue};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  height: 18px;
+  padding: 0px 5px 0px 5px;
+  /* top: -5px;
+transform: translateX(-8px); */
+
+  p {
+    color: white;
+    font-weight: 700;
+    font-size: 11px;
+  }
 `;

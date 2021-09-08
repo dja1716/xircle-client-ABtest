@@ -1,30 +1,62 @@
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { BottomNavBarContainer, colors, SpaceForNavBar } from "../../Styles";
+import { Link } from "react-router-dom";
+import routes from "../../Routes";
 
-interface Props {}
+interface Props {
+  selectedItem: string;
+}
 
 export default function BottomNavBar(props: Props) {
   return (
-    <BottomNavBarContainer>
-      <BottomNavBarItem>
-        <FontAwesomeIcon icon={faCoffee} />
-        써클
-      </BottomNavBarItem>
-      <BottomNavBarItem>친구들</BottomNavBarItem>
-      <BottomNavBarItem>마이페이지</BottomNavBarItem>
-    </BottomNavBarContainer>
+    <>
+      <BottomNavBarContainer>
+        <Link to={routes.feed} style={{ textDecoration: "none" }}>
+          {props.selectedItem === "feed" ? (
+            <BottomNavBarItem style={{ color: colors.MidBlue }}>
+              써클
+            </BottomNavBarItem>
+          ) : (
+            <BottomNavBarItem style={{ color: colors.Black }}>
+              써클
+            </BottomNavBarItem>
+          )}
+        </Link>
+        <Link
+          to={routes.friends}
+          style={{ textDecoration: "none", color: colors.Black }}
+        >
+          {props.selectedItem === "friends" ? (
+            <BottomNavBarItem style={{ color: colors.MidBlue }}>
+              친구들
+            </BottomNavBarItem>
+          ) : (
+            <BottomNavBarItem style={{ color: colors.Black }}>
+              친구들
+            </BottomNavBarItem>
+          )}
+        </Link>
+        <Link
+          to={routes.mypage}
+          style={{ textDecoration: "none", color: colors.Black }}
+        >
+          {props.selectedItem === "mypage" ? (
+            <BottomNavBarItem style={{ color: colors.MidBlue }}>
+              마이페이지
+            </BottomNavBarItem>
+          ) : (
+            <BottomNavBarItem style={{ color: colors.Black }}>
+              마이페이지
+            </BottomNavBarItem>
+          )}
+        </Link>
+      </BottomNavBarContainer>
+      <SpaceForNavBar />
+    </>
   );
 }
 
-const BottomNavBarContainer = styled.div`
-  width: 100%;
-  height: 75px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid white;
-`;
+
 
 const BottomNavBarItem = styled.div`
   width: 125px;
@@ -32,4 +64,8 @@ const BottomNavBarItem = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  &:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
 `;
