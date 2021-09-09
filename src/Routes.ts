@@ -6,6 +6,8 @@ const routes = {
   booking: "/booking",
   bookingconfirm: "/bookingconfirm",
   request: "/request",
+  myxirclepage: "/myxirclepage",
+  myprofilemodifypage: "/myprofilemodifypage",
 };
 
 export default routes;

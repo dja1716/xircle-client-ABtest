@@ -8,6 +8,7 @@ import {
   MainBtn,
   SpaceForNavBar,
   BottomFixedButtonContainer,
+  BottomFixedButtoninContainer,
 } from "../../Styles";
 import Header from "../../components/shared/Header/Header";
 import HeaderTextHeading from "../../components/shared/Header/HeaderTextHeading";
@@ -81,9 +82,9 @@ export default function PlacePage(props: Props) {
           style={{ textDecoration: "none", color: colors.Black }}
         >
           <BottomFixedButtonContainer>
-            <Participate>
+            <BottomFixedButtoninContainer>
               <p>참여하기</p>
-            </Participate>
+            </BottomFixedButtoninContainer>
           </BottomFixedButtonContainer>
         </Link>
         <SpaceForNavBar />
@@ -161,5 +162,3 @@ const DirText = styled.p`
   line-height: 150%;
   font-size: 11px;
 `;
-
-const Participate = styled(MainBtn)``;

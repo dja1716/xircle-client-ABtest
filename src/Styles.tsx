@@ -70,7 +70,7 @@ export const MainBtn = styled.div`
 `;
 
 export const SelectionBox = styled.div`
-  width: 90%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   height: 90px;
@@ -89,6 +89,12 @@ export const SelectionMainText = styled.div`
   font-size: 14px;
 `;
 
+export const MainText = styled.div`
+  color: #12121d;
+  font-weight: 500;
+  font-size: 14px;
+`;
+
 export const SelectionSubText = styled.div`
   margin-top: 8px;
   color: #a7b0c0;
@@ -102,7 +108,6 @@ export const SubText = styled.div`
   color: #a7b0c0;
   font-weight: 400;
   font-size: 13px;
-  margin-left: 32px;
 `;
 
 export const SpaceForNavBar = styled.div`
@@ -129,7 +134,11 @@ export const BottomFixedButtonContainer = styled(BottomNavBarContainer)`
   align-items: center;
 `;
 
-export const Tag = styled.div`
+export const BottomFixedButtoninContainer = styled(MainBtn)`
+  width: 333px;
+`;
+
+export const Tag = styled.span`
   position: absolute;
   background-color: ${colors.MidBlue};
   display: flex;
@@ -148,9 +157,45 @@ transform: translateX(-8px); */
   }
 `;
 
+export const InterestTag = styled(Tag)`
+  position: static;
+`;
+
 export const Avartar = styled.img`
   width: 30px;
   height: 30px;
   border-radius: 50%;
   object-fit: cover;
+`;
+
+export const ContainerFlexColumn = styled(Container)`
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Heading = styled(ProcedureHeading)`
+  padding-top: 50px;
+`;
+
+export const ContainerwithLeftRightMargin = styled(Container)`
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+export const FlexDiv = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const FlexColumn = styled.div`
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 `;

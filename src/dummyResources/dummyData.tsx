@@ -13,6 +13,8 @@ interface DummyData {
   feedCondition?: string;
 }
 
+export const DummyAvartar = Avartar1;
+
 export const feedDummyData: DummyData[] = [
   {
     placeImgSrc: MainPicDummy,

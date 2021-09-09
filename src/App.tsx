@@ -10,6 +10,8 @@ import FriendsPage from "./pages/friends/FriendsPage";
 import MyPage from "./pages/mypage/MyPage";
 import BookingPage from "./pages/place/BookingPage";
 import BookingConfirmPage from "./pages/place/BookingConfirmPage";
+import MyXirclePage from "./pages/mypage/MyXirclePage";
+import ModifyProfilePage from "./pages/mypage/ModifyProfilePage";
 
 function App() {
   return (
@@ -38,6 +40,12 @@ function App() {
             </Route>
             <Route path={routes.request}>
               <RequestPage />
+            </Route>
+            <Route path={routes.myxirclepage}>
+              <MyXirclePage />
+            </Route>
+            <Route path={routes.myprofilemodifypage}>
+              <ModifyProfilePage />
             </Route>
           </Switch>
         </Router>
