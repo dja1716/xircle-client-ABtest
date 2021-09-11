@@ -66,14 +66,14 @@ export default function FeedPage(props: Props) {
           >
             <Feed
               placeImgSrc={item.placeImgSrc}
-              feedParticipant={item.feedParticipant}
-              feedClosed={item.feedClosed}
-              feedHeading={item.feedHeading}
-              feedDetail={item.feedDetail}
-              feedLocation={item.feedLocation}
-              feedTime={item.feedTime}
-              feedCondition={item.feedCondition}
-              feedTag={item.feedTag}
+              placeParticipant={item.feedParticipant}
+              placeClosed={item.feedClosed}
+              placeHeading={item.feedHeading}
+              placeDetail={item.feedDetail}
+              placeLocation={item.feedLocation}
+              placeTime={item.feedTime}
+              placeCondition={item.feedCondition}
+              placeTag={item.feedTag}
             ></Feed>
           </Link>
         );

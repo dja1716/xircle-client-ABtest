@@ -14,16 +14,11 @@ code {
     monospace;
 }
 
-:checked {
-  background-color: #c4cbd8;
-  font-family: FontAwesome;
-  content: "\f096";
-}
 
-input[type="checkbox"]:checked {
+
+:checked {
   appearance: none;
   background-color: #18a0fb;
   border: 1px solid #18a0fb;
-  content: "\f00c";
-  font-family: FontAwesome;
+
 }

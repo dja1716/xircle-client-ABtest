@@ -11,8 +11,13 @@ import {
   colors,
   SpaceForNavBar,
   SubText,
+  MidInput,
+  SmallInput,
+  GenderText,
+  BigTextArea,
+  Label
 } from "../../Styles";
-import { DummyAvartar } from "../../dummyResources/dummyData";
+import { DummyAvartar, DummyProfileData } from "../../dummyResources/dummyData";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -47,10 +52,14 @@ export default function ModifyProfilePage(props: Props) {
             size="lg"
             style={{ marginRight: "8px" }}
           />
-          서울특별시 성동구
+          {DummyProfileData.location ? DummyProfileData.location : "대한민국"}
         </LocationText>
         <form>
-          <MidInput name="name" placeholder="Username" />
+          <MidInput
+            name="name"
+            placeholder="Username"
+            value={DummyProfileData.userName}
+          />
           <FlexDiv
             style={{
               justifyContent: "normal",
@@ -62,13 +71,16 @@ export default function ModifyProfilePage(props: Props) {
               placeholder="고려대학교"
               disabled
               style={{ marginTop: "0px" }}
+              value={DummyProfileData.university}
             />
             <input
               type="checkbox"
               style={{ width: "24px", height: "24px" }}
               id="privacy"
               className="checkbox"
+              checked
             />
+
             <GenderText>비공개</GenderText>
           </FlexDiv>
           <SmallInput name="age" placeholder="20대 초반" disabled />
@@ -113,26 +125,6 @@ export default function ModifyProfilePage(props: Props) {
   );
 }
 
-const GenderText = styled(SubText)`
-  font-size: 16px;
-  font-weight: normal;
-  color: ${colors.MidGray};
-`;
-
-const BigTextArea = styled.textarea`
-  margin-top: 12px;
-  height: 105px;
-`;
-
-const MidInput = styled.input`
-  margin-top: 12px;
-`;
-
-const SmallInput = styled.input`
-  margin-top: 12px;
-  width: 65%;
-`;
-
 const WarningText = styled.p`
   margin-top: 18px;
   font-weight: normal;
@@ -149,12 +141,7 @@ const LocationText = styled.p`
   color: ${colors.LightGray};
 `;
 
-const Label = styled.p`
-  font-size: 16px;
-  font-weight: normal;
-  color: ${colors.MidGray};
-  margin-top: 24px;
-`;
+
 
 const AvartarProfile = styled(Avartar)`
   width: 125px;

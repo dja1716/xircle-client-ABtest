@@ -18,26 +18,35 @@ export const GlobalStyles = createGlobalStyle`
      font-family: "Spoqa Han Sans Neo", "Spoqa Han Sans JP", sans-serif;
      color: "#12121D";
    }
-   input, textarea {
+   input, textarea, select, option {
      border: 1px solid #C4CBD8;
      border-radius: 8px;
      font-size: 14px;
-     padding: 8px;
-     width: 100%;
+     padding-top: 8px;
+     padding-bottom: 8px;
+     width: 301px;
+     padding-left: 8px;
+     padding-right: 8px;
+     
    }
-   input::placeholder, textarea::placeholder {
-      color: #C4CBD8
+   input::placeholder, textarea::placeholder, input:disabled, select, option {
+      color: #C4CBD8;
    }
+
+
    input[type=radio] {
      appearance: none;
      width: 24px;
      height: 24px;
      border-radius: 50%;
+     margin-top: 0px;
+
    }
    
    input[type=checkbox] {
     appearance: none;
     border-radius: 50%;
+    margin-top: 0px;
    }
 
 
@@ -135,6 +144,12 @@ export const SubText = styled.div`
   font-weight: 400;
   font-size: 13px;
 `;
+export const SubTextSpan = styled.span`
+  margin-top: 8px;
+  color: #a7b0c0;
+  font-weight: 400;
+  font-size: 13px;
+`;
 
 export const SpaceForNavBar = styled.div`
   width: 100%;
@@ -224,4 +239,43 @@ export const FlexColumn = styled.div`
   justify-content: center;
   display: flex;
   flex-direction: column;
+`;
+
+export const GenderText = styled(SubText)`
+  font-size: 16px;
+  font-weight: normal;
+  color: ${colors.MidGray};
+  align-self: auto;
+  margin-top: 0px;
+`;
+
+export const BigTextArea = styled.textarea`
+  margin-top: 12px;
+  height: 105px;
+`;
+
+export const MidInput = styled.input`
+  margin-top: 12px;
+`;
+
+export const SmallInput = styled.input`
+  margin-top: 12px;
+  width: 65%;
+`;
+
+export const Label = styled.p`
+  font-size: 16px;
+  font-weight: normal;
+  color: ${colors.MidGray};
+  margin-top: 24px;
+`;
+
+export const NextButton = styled(MainBtn)`
+  filter: none;
+  background-color: ${colors.LightGray};
+  position: fixed;
+  z-index: 3;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
 `;
