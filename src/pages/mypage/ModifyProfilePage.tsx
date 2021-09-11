@@ -15,7 +15,7 @@ import {
   SmallInput,
   GenderText,
   BigTextArea,
-  Label
+  Label,
 } from "../../Styles";
 import { DummyAvartar, DummyProfileData } from "../../dummyResources/dummyData";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
@@ -73,15 +73,6 @@ export default function ModifyProfilePage(props: Props) {
               style={{ marginTop: "0px" }}
               value={DummyProfileData.university}
             />
-            <input
-              type="checkbox"
-              style={{ width: "24px", height: "24px" }}
-              id="privacy"
-              className="checkbox"
-              checked
-            />
-
-            <GenderText>비공개</GenderText>
           </FlexDiv>
           <SmallInput name="age" placeholder="20대 초반" disabled />
           <FlexDiv style={{ justifyContent: "normal", marginTop: "20px" }}>
@@ -140,8 +131,6 @@ const LocationText = styled.p`
   margin-top: 12px;
   color: ${colors.LightGray};
 `;
-
-
 
 const AvartarProfile = styled(Avartar)`
   width: 125px;

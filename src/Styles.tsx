@@ -31,8 +31,11 @@ export const GlobalStyles = createGlobalStyle`
    }
    input::placeholder, textarea::placeholder, input:disabled, select, option {
       color: #C4CBD8;
-   }
 
+   }
+   select {
+    background-color: white;
+   }
 
    input[type=radio] {
      appearance: none;
