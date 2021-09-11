@@ -5,10 +5,7 @@ import {
   Heading,
   SubText,
   colors,
-  MainBtn,
-  FlexDiv,
   NextButton,
-  SpaceForNavBar,
   SubTextSpan,
 } from "../../Styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -42,7 +39,11 @@ export default function AuthPage4(props: Props) {
           <SubTextSpan>
             {"("}선택 항목 포함{")"}
           </SubTextSpan>
-          <FontAwesomeIcon icon={faChevronRight} color={colors.LightGray} />
+          <FontAwesomeIcon
+            icon={faChevronRight}
+            color={colors.LightGray}
+            style={{ position: "absolute", right: "0%" }}
+          />
         </TextSpanDiv>
         <TextSpanDiv>
           <FontAwesomeIcon icon={faCircle} color={colors.LightGray} />
@@ -52,7 +53,11 @@ export default function AuthPage4(props: Props) {
           <BlueTextSpan>
             {"("}필수{")"}
           </BlueTextSpan>
-          <FontAwesomeIcon icon={faChevronRight} color={colors.LightGray} />
+          <FontAwesomeIcon
+            icon={faChevronRight}
+            color={colors.LightGray}
+            style={{ position: "absolute", right: "0%" }}
+          />
         </TextSpanDiv>
         <TextSpanDiv>
           <FontAwesomeIcon icon={faCircle} color={colors.LightGray} />
@@ -62,7 +67,11 @@ export default function AuthPage4(props: Props) {
           <BlueTextSpan>
             {"("}필수{")"}
           </BlueTextSpan>
-          <FontAwesomeIcon icon={faChevronRight} color={colors.LightGray} />
+          <FontAwesomeIcon
+            icon={faChevronRight}
+            color={colors.LightGray}
+            style={{ position: "absolute", right: "0%" }}
+          />
         </TextSpanDiv>
         <TextSpanDiv>
           <FontAwesomeIcon icon={faCircle} color={colors.LightGray} />
@@ -72,7 +81,11 @@ export default function AuthPage4(props: Props) {
           <BlueTextSpan>
             {"("}필수{")"}
           </BlueTextSpan>
-          <FontAwesomeIcon icon={faChevronRight} color={colors.LightGray} />
+          <FontAwesomeIcon
+            icon={faChevronRight}
+            color={colors.LightGray}
+            style={{ position: "absolute", right: "0%" }}
+          />
         </TextSpanDiv>
         <TextSpanDiv>
           <span>
@@ -85,8 +98,12 @@ export default function AuthPage4(props: Props) {
             <GrayTextSpan>
               {"("}필수{")"}
             </GrayTextSpan>
-            <FontAwesomeIcon icon={faChevronRight} color={colors.LightGray} />
           </span>
+          <FontAwesomeIcon
+            icon={faChevronRight}
+            color={colors.LightGray}
+            style={{ position: "absolute", right: "0%" }}
+          />
         </TextSpanDiv>
         <NextButton>시작하기</NextButton>
       </ContainerwithLeftRightMargin>
@@ -97,6 +114,7 @@ export default function AuthPage4(props: Props) {
 const TextSpanDiv = styled.div`
   width: 100%;
   margin-top: 8px;
+  position: relative;
 `;
 
 const BlackTextSpan = styled(SubTextSpan)`

@@ -48,7 +48,7 @@ export default function PlacesPage(props: Props) {
             />
           </div>
           <Link to={routes.request} style={{ textDecoration: "none" }}>
-            <RequestP>식탁 건의하기</RequestP>
+            <RequestP>서클 추가하기</RequestP>
           </Link>
         </TopWrapper>
       </Top>
@@ -103,7 +103,7 @@ const TopWrapper = styled.div`
 `;
 
 const RequestP = styled.div`
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: ${colors.MidGray};
   padding-top: 8px;
