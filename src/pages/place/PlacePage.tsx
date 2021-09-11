@@ -17,7 +17,18 @@ import Avartar from "../../components/shared/Avartar";
 import routes from "../../Routes";
 import { Link } from "react-router-dom";
 
-interface Props {}
+interface Props {
+  // deadline: string;
+  // imgUrl: string;
+  // name: string;
+  // date: string;
+  // ageRange: {min?: number, max?: number};
+  // tags: string[];
+  // participants: string[];
+  // participants_count: number;
+  // isClosed: boolean;
+  // isParticipating: boolean;
+}
 
 export default function PlacePage(props: Props) {
   return (
