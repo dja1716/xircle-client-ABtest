@@ -35,7 +35,7 @@ export default function BookingConfirmPage(props: Props) {
           참여하는 친구들 프로필 보기
         </MainBtnBookingConfirm>
       </ContainerwithLeftRightMargin>
-      <BottomNavBar selectedItem="feed" />
+      <BottomNavBar selectedItem="places" />
     </Container>
   );
 }

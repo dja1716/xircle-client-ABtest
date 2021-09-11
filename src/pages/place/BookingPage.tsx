@@ -83,7 +83,7 @@ export default function BookingPage(props: Props) {
         )}
       </ContainerwithLeftRightMargin>
 
-      <BottomNavBar selectedItem="feed" />
+      <BottomNavBar selectedItem="places" />
     </Container>
   );
 }

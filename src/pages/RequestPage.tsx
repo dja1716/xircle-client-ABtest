@@ -22,7 +22,7 @@ export default function RequestPage(props: Props) {
         </SubTextRequest>
         <MainBtnRequest>써클 건의해보기</MainBtnRequest>
       </ContainerwithLeftRightMargin>
-      <BottomNavBar selectedItem="feed" />
+      <BottomNavBar selectedItem="places" />
     </Container>
   );
 }

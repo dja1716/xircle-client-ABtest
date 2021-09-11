@@ -9,7 +9,7 @@ import { colors, Container } from "../../Styles";
 import Header from "../../components/shared/Header/Header";
 import HeaderTextHeading from "../../components/shared/Header/HeaderTextHeading";
 import HeaderTextDescription from "../../components/shared/Header/HeaderTextDescription";
-import Place from "../../components/feed/Place";
+import Place from "../../components/places/Place";
 import { feedDummyData } from "../../dummyResources/dummyData";
 import BottomNavBar from "../../components/shared/BottomNavBar";
 import { Link } from "react-router-dom";
@@ -78,7 +78,7 @@ export default function PlacesPage(props: Props) {
           </Link>
         );
       })}
-      <BottomNavBar selectedItem="feed" />
+      <BottomNavBar selectedItem="places" />
     </Container>
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import { GlobalStyles, AppContainer } from "./Styles";
-import PlacesPage from "./pages/feed/PlacesPage";
+import PlacesPage from "./pages/places/PlacesPage";
 import RequestPage from "./pages/RequestPage";
 import PlacePage from "./pages/place/PlacePage";
 import routes from "./Routes";
