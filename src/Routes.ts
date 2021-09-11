@@ -1,5 +1,5 @@
 const routes = {
-  feed: "/feed",
+  places: "/places",
   place: "/place",
   friends: "/friends",
   mypage: "/mypage",

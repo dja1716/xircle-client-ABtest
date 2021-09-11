@@ -14,7 +14,7 @@ interface Props {
   placeCondition?: string;
 }
 
-export default function Feed(props: Props) {
+export default function Place(props: Props) {
   //const tag: string | null | undefined = props.feedTag;
 
   return (

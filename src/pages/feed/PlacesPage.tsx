@@ -3,13 +3,13 @@ import React, { useState } from "react";
 import MainPicDummy from "../../dummyResources/MainPicDummy.jpg";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
-import "./FeedPage.css";
+import "./PlacesPage.css";
 import { Option } from "react-dropdown";
 import { colors, Container } from "../../Styles";
 import Header from "../../components/shared/Header/Header";
 import HeaderTextHeading from "../../components/shared/Header/HeaderTextHeading";
 import HeaderTextDescription from "../../components/shared/Header/HeaderTextDescription";
-import Feed from "../../components/feed/Feed";
+import Place from "../../components/feed/Place";
 import { feedDummyData } from "../../dummyResources/dummyData";
 import BottomNavBar from "../../components/shared/BottomNavBar";
 import { Link } from "react-router-dom";
@@ -35,7 +35,7 @@ const options: Option[] = [
 
 interface Props {}
 
-export default function FeedPage(props: Props) {
+export default function PlacesPage(props: Props) {
   return (
     <Container>
       <Top>
@@ -64,7 +64,7 @@ export default function FeedPage(props: Props) {
             to={routes.place}
             style={{ textDecoration: "none", color: colors.Black }}
           >
-            <Feed
+            <Place
               placeImgSrc={item.placeImgSrc}
               placeParticipant={item.feedParticipant}
               placeClosed={item.feedClosed}
@@ -74,7 +74,7 @@ export default function FeedPage(props: Props) {
               placeTime={item.feedTime}
               placeCondition={item.feedCondition}
               placeTag={item.feedTag}
-            ></Feed>
+            ></Place>
           </Link>
         );
       })}

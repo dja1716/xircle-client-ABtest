@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import { GlobalStyles, AppContainer } from "./Styles";
-import FeedPage from "./pages/feed/FeedPage";
+import PlacesPage from "./pages/feed/PlacesPage";
 import RequestPage from "./pages/RequestPage";
 import PlacePage from "./pages/place/PlacePage";
 import routes from "./Routes";
@@ -24,8 +24,8 @@ function App() {
       <AppContainer>
         <Router>
           <Switch>
-            <Route path={routes.feed}>
-              <FeedPage />
+            <Route path={routes.places}>
+              <PlacesPage />
             </Route>
             <Route path={routes.place}>
               <PlacePage />
