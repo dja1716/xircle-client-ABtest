@@ -14,9 +14,35 @@ interface Colors {
 
 export const GlobalStyles = createGlobalStyle`
     ${reset}
-   p, a, span, h3, h4, div {
+   p, a, span, h3, h4, div, input, label, textarea {
      font-family: "Spoqa Han Sans Neo", "Spoqa Han Sans JP", sans-serif;
      color: "#12121D";
+   }
+   input, textarea {
+     border: 1px solid #C4CBD8;
+     border-radius: 8px;
+     font-size: 14px;
+     padding: 8px;
+     width: 100%;
+   }
+   input::placeholder, textarea::placeholder {
+      color: #C4CBD8
+   }
+   input[type=radio] {
+     appearance: none;
+     width: 24px;
+     height: 24px;
+     border-radius: 50%;
+   }
+   
+   input[type=checkbox] {
+    appearance: none;
+    border-radius: 50%;
+   }
+
+
+   .checkbox {
+
    }
 `;
 
