@@ -14,10 +14,17 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { faCircle } from "@fortawesome/free-regular-svg-icons";
+import { useState, useEffect } from "react";
 
 interface Props {}
 
 export default function AuthPage4(props: Props) {
+  const [isSelected1, setIsSelected1] = useState<boolean>(false);
+  const [isSelected2, setIsSelected2] = useState<boolean>(false);
+  const [isSelected3, setIsSelected3] = useState<boolean>(false);
+  const [isSelected4, setIsSelected4] = useState<boolean>(false);
+  const [isSelected5, setIsSelected5] = useState<boolean>(false);
+
   return (
     <ContainerFlexColumn>
       <ContainerwithLeftRightMargin>
@@ -31,8 +38,22 @@ export default function AuthPage4(props: Props) {
           친구들과 써클 모임 시작 전 필수 약관 내용에 먼저 <br />
           동의해주세요
         </SubText>
-        <TextSpanDiv style={{ marginTop: "30px" }}>
-          <FontAwesomeIcon icon={faCheckCircle} color={colors.MidBlue} />
+        <TextSpanDiv
+          style={{ marginTop: "30px" }}
+          onClick={() => {
+            setIsSelected1(!isSelected1);
+            setIsSelected2(!isSelected1);
+            setIsSelected3(!isSelected1);
+            setIsSelected4(!isSelected1);
+            setIsSelected5(!isSelected1);
+          }}
+        >
+          {isSelected1 ? (
+            <FontAwesomeIcon icon={faCheckCircle} color={colors.MidBlue} />
+          ) : (
+            <FontAwesomeIcon icon={faCircle} color={colors.LightGray} />
+          )}
+
           <BlackTextSpan style={{ fontWeight: "bold", marginLeft: "10px" }}>
             전체 동의
           </BlackTextSpan>
@@ -45,8 +66,12 @@ export default function AuthPage4(props: Props) {
             style={{ position: "absolute", right: "0%" }}
           />
         </TextSpanDiv>
-        <TextSpanDiv>
-          <FontAwesomeIcon icon={faCircle} color={colors.LightGray} />
+        <TextSpanDiv onClick={() => setIsSelected2(!isSelected2)}>
+          {isSelected2 ? (
+            <FontAwesomeIcon icon={faCheckCircle} color={colors.MidBlue} />
+          ) : (
+            <FontAwesomeIcon icon={faCircle} color={colors.LightGray} />
+          )}
           <BlackTextSpan style={{ marginLeft: "10px" }}>
             써클 이용약관
           </BlackTextSpan>
@@ -59,8 +84,12 @@ export default function AuthPage4(props: Props) {
             style={{ position: "absolute", right: "0%" }}
           />
         </TextSpanDiv>
-        <TextSpanDiv>
-          <FontAwesomeIcon icon={faCircle} color={colors.LightGray} />
+        <TextSpanDiv onClick={() => setIsSelected3(!isSelected3)}>
+          {isSelected3 ? (
+            <FontAwesomeIcon icon={faCheckCircle} color={colors.MidBlue} />
+          ) : (
+            <FontAwesomeIcon icon={faCircle} color={colors.LightGray} />
+          )}
           <BlackTextSpan style={{ marginLeft: "10px" }}>
             써클 개인정보 수집 및 이용동의
           </BlackTextSpan>
@@ -73,8 +102,12 @@ export default function AuthPage4(props: Props) {
             style={{ position: "absolute", right: "0%" }}
           />
         </TextSpanDiv>
-        <TextSpanDiv>
-          <FontAwesomeIcon icon={faCircle} color={colors.LightGray} />
+        <TextSpanDiv onClick={() => setIsSelected4(!isSelected4)}>
+          {isSelected4 ? (
+            <FontAwesomeIcon icon={faCheckCircle} color={colors.MidBlue} />
+          ) : (
+            <FontAwesomeIcon icon={faCircle} color={colors.LightGray} />
+          )}
           <BlackTextSpan style={{ marginLeft: "10px" }}>
             위치기반 서비스 이용동의
           </BlackTextSpan>
@@ -87,18 +120,18 @@ export default function AuthPage4(props: Props) {
             style={{ position: "absolute", right: "0%" }}
           />
         </TextSpanDiv>
-        <TextSpanDiv>
-          <span>
+        <TextSpanDiv onClick={() => setIsSelected5(!isSelected5)}>
+          {isSelected5 ? (
+            <FontAwesomeIcon icon={faCheckCircle} color={colors.MidBlue} />
+          ) : (
             <FontAwesomeIcon icon={faCircle} color={colors.LightGray} />
-          </span>
-          <span>
-            <BlackTextSpan style={{ marginLeft: "10px" }}>
-              써클 마케팅 수신동의
-            </BlackTextSpan>
-            <GrayTextSpan>
-              {"("}필수{")"}
-            </GrayTextSpan>
-          </span>
+          )}
+          <BlackTextSpan style={{ marginLeft: "10px" }}>
+            써클 마케팅 수신동의
+          </BlackTextSpan>
+          <GrayTextSpan>
+            {"("}필수{")"}
+          </GrayTextSpan>
           <FontAwesomeIcon
             icon={faChevronRight}
             color={colors.LightGray}
