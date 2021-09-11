@@ -273,9 +273,17 @@ export const Label = styled.p`
   margin-top: 24px;
 `;
 
-export const NextButton = styled(MainBtn)`
+export const NextButtonDisabled = styled(MainBtn)`
   filter: none;
   background-color: ${colors.LightGray};
+  position: fixed;
+  z-index: 3;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+`;
+
+export const NextButtonEnabled = styled(MainBtn) `
   position: fixed;
   z-index: 3;
   bottom: 40px;

@@ -11,7 +11,7 @@ import {
   GenderText,
   Label,
   BigTextArea,
-  NextButton,
+  NextButtonDisabled,
   SpaceForNavBar,
 } from "../../Styles";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
@@ -95,7 +95,7 @@ export default function AuthPage2(props: Props) {
           to={routes.auth3}
           style={{ textDecoration: "none", color: colors.Black }}
         >
-          <NextButton>다음</NextButton>
+          <NextButtonDisabled>다음</NextButtonDisabled>
         </Link>
       </ContainerwithLeftRightMargin>
     </ContainerFlexColumn>

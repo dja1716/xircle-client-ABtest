@@ -6,19 +6,22 @@ import {
   SubText,
   colors,
   MainBtn,
-  NextButton,
+  NextButtonDisabled,
   Avartar,
   FlexDiv,
+  NextButtonEnabled,
 } from "../../Styles";
 import { Link } from "react-router-dom";
 import routes from "../../Routes";
 import { DummyAvartar } from "../../dummyResources/dummyData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle,  } from "@fortawesome/free-solid-svg-icons";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 interface Props {}
 
 export default function AuthPage3(props: Props) {
+  const [isSelected1, setIsSelected1] = useState<boolean>(false);
   return (
     <ContainerFlexColumn>
       <ContainerwithLeftRightMargin>
@@ -26,7 +29,10 @@ export default function AuthPage3(props: Props) {
         <SubText style={{ marginTop: "12px" }}>
           개성이 나타나는 사진을 업로드해주세요!
         </SubText>
-        <FlexDiv style={{ marginTop: "29px" }}>
+        <FlexDiv
+          style={{ marginTop: "29px" }}
+          onClick={() => setIsSelected1(true)}
+        >
           <Avartar
             src={DummyAvartar}
             style={{ width: "78px", height: "78px" }}
@@ -94,12 +100,16 @@ export default function AuthPage3(props: Props) {
           <FontAwesomeIcon icon={faCheckCircle} color={colors.MidBlue} />
           <FontAwesomeIcon icon={faCheckCircle} color={colors.MidBlue} />
         </FlexDiv>
-        <Link
-          to={routes.auth4}
-          style={{ textDecoration: "none", color: colors.Black }}
-        >
-          <NextButton>가입하기</NextButton>
-        </Link>
+        {isSelected1 ? (
+          <Link
+            to={routes.auth4}
+            style={{ textDecoration: "none", color: colors.Black }}
+          >
+            <NextButtonEnabled>시작하기</NextButtonEnabled>
+          </Link>
+        ) : (
+          <NextButtonDisabled>시작하기</NextButtonDisabled>
+        )}
       </ContainerwithLeftRightMargin>
     </ContainerFlexColumn>
   );

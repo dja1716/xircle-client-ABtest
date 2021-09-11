@@ -6,11 +6,10 @@ import {
   SubText,
   colors,
   MainBtn,
-  NextButton,
+  NextButtonDisabled,
 } from "../../Styles";
 import { Link } from "react-router-dom";
 import routes from "../../Routes";
-import AuthPage2 from "./AuthPage2";
 
 interface Props {}
 
@@ -36,7 +35,7 @@ export default function AuthPage1(props: Props) {
           to={routes.auth2}
           style={{ textDecoration: "none", color: colors.Black }}
         >
-          <NextButton>다음</NextButton>
+          <NextButtonDisabled>다음</NextButtonDisabled>
         </Link>
       </ContainerwithLeftRightMargin>
     </ContainerFlexColumn>

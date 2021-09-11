@@ -5,8 +5,9 @@ import {
   Heading,
   SubText,
   colors,
-  NextButton,
+  NextButtonDisabled,
   SubTextSpan,
+  NextButtonEnabled,
 } from "../../Styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -15,6 +16,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faCircle } from "@fortawesome/free-regular-svg-icons";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import routes from "../../Routes";
 
 interface Props {}
 
@@ -138,7 +141,16 @@ export default function AuthPage4(props: Props) {
             style={{ position: "absolute", right: "0%" }}
           />
         </TextSpanDiv>
-        <NextButton>시작하기</NextButton>
+        {isSelected2 && isSelected3 && isSelected4 && isSelected5 ? (
+          <Link
+            to={routes.places}
+            style={{ textDecoration: "none", color: colors.Black }}
+          >
+            <NextButtonEnabled>시작하기</NextButtonEnabled>
+          </Link>
+        ) : (
+          <NextButtonDisabled>시작하기</NextButtonDisabled>
+        )}
       </ContainerwithLeftRightMargin>
     </ContainerFlexColumn>
   );
