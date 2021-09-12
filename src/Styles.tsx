@@ -99,7 +99,8 @@ export const MainBtn = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  filter: drop-shadow(16px 16px 20px rgba(75, 88, 208, 0.5));
+  /* filter: drop-shadow(16px 16px 20px rgba(75, 88, 208, 0.5)); */
+  box-shadow: rgba(75, 88, 208, 0.5) 0px 25px 20px -20px;
   font-weight: bold;
   color: white;
   p {
@@ -283,7 +284,7 @@ export const NextButtonDisabled = styled(MainBtn)`
   transform: translateX(-50%);
 `;
 
-export const NextButtonEnabled = styled(MainBtn) `
+export const NextButtonEnabled = styled(MainBtn)`
   position: fixed;
   z-index: 3;
   bottom: 40px;

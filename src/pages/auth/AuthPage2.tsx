@@ -34,19 +34,27 @@ export default function AuthPage2(props: Props) {
             style={{ marginTop: "24px" }}
             type="text"
           />
-          <select id="" name="University" style={{ marginTop: "12px" }}>
+          <select
+            id=""
+            name="University"
+            style={{ marginTop: "12px", width: "234px" }}
+          >
             <option value="">학교</option>
             <option value="고려대학교">고려대학교</option>
             <option value="연세대학교">연세대학교</option>
           </select>
-          <select id="" name="Age" style={{ marginTop: "12px" }}>
+          <select
+            id=""
+            name="Age"
+            style={{ marginTop: "12px", width: "234px" }}
+          >
             <option value="">나이</option>
             <option value="20초">20초</option>
             <option value="20중">20중</option>
             <option value="20후">20후</option>
             <option value="30초">30초</option>
           </select>
-          <SubText>나이는 20초 20중 20후 30초 방식으로 표기가되요!</SubText>
+          {/* <SubText>나이는 20초 20중 20후 30초 방식으로 표기가되요!</SubText> */}
           <FlexDiv style={{ justifyContent: "normal", marginTop: "20px" }}>
             <input type="radio" name="gender" id="male" />
             <GenderText>남성</GenderText>
@@ -69,7 +77,7 @@ export default function AuthPage2(props: Props) {
             name="selfpromotext"
             placeholder="ex. 미대에 다니는 다양한 삶을 살고 싶어하는 미개봉화석^^
            요즘 스타트업에 관심이 생겨서 관련하신 분들과 이야기하면 좋을 것 같아요ㅎㅎ"
-            style={{ fontSize: "12px", lineHeight: "12px" }}
+            style={{ fontSize: "12px", lineHeight: "18px" }}
           />
         </form>
         <p
