@@ -23,14 +23,14 @@ export default function RegisteredFeed(props: Props) {
         <FeedHeading>{props.feedHeading}</FeedHeading>
         <FeedDetailP>{props.feedDetail}</FeedDetailP>
 
-        <FeedTimeP>{props.feedLocation}</FeedTimeP>
-        <FeedTimeP style={{ marginRight: "3px", marginLeft: "3px" }}>
+        <FeedTimeSpan>{props.feedLocation}</FeedTimeSpan>
+        <FeedTimeSpan style={{ marginRight: "3px", marginLeft: "3px" }}>
           /
-        </FeedTimeP>
-        <FeedTimeP>{props.feedTime}</FeedTimeP>
-        <FeedTimeP style={{ marginLeft: "8px" }}>
+        </FeedTimeSpan>
+        <FeedTimeSpan>{props.feedTime}</FeedTimeSpan>
+        <FeedTimeSpan style={{ marginLeft: "8px" }}>
           {props.feedCondition}
-        </FeedTimeP>
+        </FeedTimeSpan>
       </FeedDescription>
     </FeedContainer>
   );
@@ -53,7 +53,7 @@ const FeedLeftContainer = styled.div`
 const FeedImg = styled.img`
   width: 100%;
   height: 100%;
-  border-radius: 10%;
+  border-radius: 5px;
   object-fit: cover;
 `;
 
@@ -68,7 +68,7 @@ const FeedDetailP = styled.p`
   font-size: 10px;
 `;
 
-const FeedTimeP = styled.span`
+const FeedTimeSpan = styled.span`
   margin-top: 3px;
   font-size: 10px;
   color: ${colors.LightGray};

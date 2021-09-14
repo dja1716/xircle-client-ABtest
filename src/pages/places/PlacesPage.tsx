@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import React, { useState } from "react";
 import MainPicDummy from "../../dummyResources/MainPicDummy.jpg";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
@@ -14,28 +13,31 @@ import { feedDummyData } from "../../dummyResources/dummyData";
 import BottomNavBar from "../../components/shared/BottomNavBar";
 import { Link } from "react-router-dom";
 import routes from "../../Routes";
+import { useState } from "react";
 
 const options: Option[] = [
   {
-    value: "안암근처",
+    value: "안암",
     label: "안암근처",
     className: "drop-down-option",
   },
   {
-    value: "신촌근처",
+    value: "신촌",
     label: "신촌근처",
-    className: "drop-down-option",
-  },
-  {
-    value: "혜화근처",
-    label: "혜화근처",
     className: "drop-down-option",
   },
 ];
 
 interface Props {}
 
-export default function PlacesPage(props: Props) {
+export default function PlacesPage(this: any, props: Props) {
+  const [optionValue, SetOptionValue] = useState<string>(options[0].value);
+
+  const HandleSelectChange = (option: Option) => {
+    console.log(option.value);
+    SetOptionValue(option.value);
+  };
+
   return (
     <Container>
       <Top>
@@ -45,6 +47,7 @@ export default function PlacesPage(props: Props) {
               controlClassName="drop-down-className"
               options={options}
               value={options[0]}
+              onChange={HandleSelectChange}
             />
           </div>
           <Link to={routes.request} style={{ textDecoration: "none" }}>
@@ -58,26 +61,33 @@ export default function PlacesPage(props: Props) {
           취향이 통하는 대학친구들과 즐기는 공간
         </HeaderTextDescription>
       </Header>
-      {feedDummyData.map((item) => {
-        return (
-          <Link
-            to={routes.place}
-            style={{ textDecoration: "none", color: colors.Black }}
-          >
-            <Place
-              placeImgSrc={item.placeImgSrc}
-              placeParticipant={item.feedParticipant}
-              placeClosed={item.feedClosed}
-              placeHeading={item.feedHeading}
-              placeDetail={item.feedDetail}
-              placeLocation={item.feedLocation}
-              placeTime={item.feedTime}
-              placeCondition={item.feedCondition}
-              placeTag={item.feedTag}
-            ></Place>
-          </Link>
-        );
-      })}
+      {optionValue === "안암" ? (
+        <>
+          {feedDummyData.map((item) => {
+            return (
+              <Link
+                to={routes.place}
+                style={{ textDecoration: "none", color: colors.Black }}
+              >
+                <Place
+                  placeImgSrc={item.placeImgSrc}
+                  placeParticipant={item.feedParticipant}
+                  placeClosed={item.feedClosed}
+                  placeHeading={item.feedHeading}
+                  placeDetail={item.feedDetail}
+                  placeLocation={item.feedLocation}
+                  placeTime={item.feedTime}
+                  placeCondition={item.feedCondition}
+                  placeTag={item.feedTag}
+                ></Place>
+              </Link>
+            );
+          })}
+        </>
+      ) : (
+        <></>
+      )}
+
       <BottomNavBar selectedItem="places" />
     </Container>
   );

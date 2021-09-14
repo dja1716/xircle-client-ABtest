@@ -42,6 +42,7 @@ export default function PlacePage(props: Props) {
           <TempToBeDeleted></TempToBeDeleted>
           <HeaderText>
             <SHeaderTextHeading>안암 막걸리 찬가</SHeaderTextHeading>
+            <HeaderSplit></HeaderSplit>
             <SHeaderTextDescription>
               내일 / 서울 용상구 보광로 60길 14-38 <br />
               20세~26세
@@ -212,16 +213,21 @@ const TempToBeDeleted = styled.div`
 `;
 
 const SHeaderTextHeading = styled.h3`
-  padding-bottom: 11px;
-  border-bottom: 1px solid white;
+  padding-bottom: 13px;
   font-size: 20px;
   font-weight: 800;
 `;
 
 const SHeaderTextDescription = styled.p`
-  margin-top: 8px;
+  margin-top: 13px;
   font-size: 10px;
   font-weight: 500;
+  line-height: 150%;
+`;
+
+const HeaderSplit = styled.div`
+  width: 180px;
+  border-bottom: 1px solid white;
 `;
 
 const SHeader = styled.div`
@@ -238,7 +244,7 @@ const SHeaderPic = styled.img`
 const HeaderText = styled.div`
   color: white;
   position: absolute;
-  bottom: 8%;
-  left: 3%;
+  bottom: 25px;
+  left: 20px;
   width: 65%;
 `;

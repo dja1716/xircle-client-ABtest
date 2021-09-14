@@ -14,14 +14,20 @@ import {
   NextButtonDisabled,
   SpaceForNavBar,
 } from "../../Styles";
-import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCheckCircle,
+  faMapMarkerAlt,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import routes from "../../Routes";
+import { faCircle } from "@fortawesome/free-regular-svg-icons";
+import { useState } from "react";
 
 interface Props {}
 
 export default function AuthPage2(props: Props) {
+  const [isSelected1, setIsSelected1] = useState<boolean>(true);
   return (
     <ContainerFlexColumn>
       <ContainerwithLeftRightMargin>
@@ -34,37 +40,66 @@ export default function AuthPage2(props: Props) {
             style={{ marginTop: "24px" }}
             type="text"
           />
-          <select
-            id=""
-            name="University"
-            style={{ marginTop: "12px", width: "234px" }}
-          >
+          <select id="" name="University" style={{ marginTop: "12px" }}>
             <option value="">학교</option>
             <option value="고려대학교">고려대학교</option>
             <option value="연세대학교">연세대학교</option>
           </select>
-          <select
-            id=""
+          <MidInput
+            placeholder="나이"
+            type="number"
             name="Age"
-            style={{ marginTop: "12px", width: "234px" }}
-          >
-            <option value="">나이</option>
-            <option value="20초">20초</option>
-            <option value="20중">20중</option>
-            <option value="20후">20후</option>
-            <option value="30초">30초</option>
-          </select>
+            style={{ marginTop: "12px" }}
+          ></MidInput>
           {/* <SubText>나이는 20초 20중 20후 30초 방식으로 표기가되요!</SubText> */}
           <FlexDiv style={{ justifyContent: "normal", marginTop: "20px" }}>
-            <input type="radio" name="gender" id="male" />
-            <GenderText>남성</GenderText>
-            <input
-              type="radio"
-              name="gender"
-              id="female"
-              style={{ marginLeft: "32px" }}
-            />
-            <GenderText>여성</GenderText>
+            <span
+              style={{
+                justifyContent: "normal",
+                display: "flex",
+                alignItems: "center",
+              }}
+              onClick={() => setIsSelected1(true)}
+            >
+              {isSelected1 ? (
+                <FontAwesomeIcon
+                  icon={faCheckCircle}
+                  color={colors.MidBlue}
+                  size="lg"
+                />
+              ) : (
+                <FontAwesomeIcon
+                  icon={faCircle}
+                  color={colors.LightGray}
+                  size="lg"
+                />
+              )}
+              <GenderText style={{ marginLeft: "5px" }}>남성</GenderText>
+            </span>
+            <span
+              style={{
+                justifyContent: "normal",
+                display: "flex",
+                alignItems: "center",
+                marginLeft: "10px",
+              }}
+              onClick={() => setIsSelected1(false)}
+            >
+              {!isSelected1 ? (
+                <FontAwesomeIcon
+                  icon={faCheckCircle}
+                  color={colors.MidBlue}
+                  size="lg"
+                />
+              ) : (
+                <FontAwesomeIcon
+                  icon={faCircle}
+                  color={colors.LightGray}
+                  size="lg"
+                />
+              )}
+              <GenderText style={{ marginLeft: "5px" }}>여성</GenderText>
+            </span>
           </FlexDiv>
           <Label>계열이나 직업을 적어주세요</Label>
           <MidInput

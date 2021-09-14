@@ -35,6 +35,7 @@ export const GlobalStyles = createGlobalStyle`
    }
    select {
     background-color: white;
+    width: 319px;
    }
 
    input[type=radio] {

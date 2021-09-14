@@ -21,9 +21,10 @@ export default function Place(props: Props) {
     <PlaceContainer>
       <PlaceLeftContainer>
         {props.placeClosed && (
-          <PlaceFull>
-            <p>마감</p>
-          </PlaceFull>
+          <>
+            <PlaceFull></PlaceFull>
+            <PlaceFullText>마감 되었어요</PlaceFullText>
+          </>
         )}
         {props.placeTag && (
           <PlaceTag>
@@ -33,17 +34,32 @@ export default function Place(props: Props) {
         <PlaceImg src={props.placeImgSrc} />
       </PlaceLeftContainer>
       <PlaceDescription>
-        <PlaceHeading>{props.placeHeading}</PlaceHeading>
-        <PlaceDetailP>{props.placeDetail}</PlaceDetailP>
+        <div
+          style={{
+            alignContent: "center",
+            display: "flex",
+            justifyContent: "start",
+          }}
+        >
+          <PlaceHeading>{props.placeHeading}</PlaceHeading>
+          <PlaceTimeSpan style={{ marginLeft: "7px" }}>
+            {props.placeTime}
+          </PlaceTimeSpan>
+          <PlaceTimeSpan
+            style={{
+              marginRight: "3px",
+              marginLeft: "3px",
+            }}
+          >
+            /
+          </PlaceTimeSpan>
+          <PlaceTimeSpan>{props.placeCondition}</PlaceTimeSpan>
+        </div>
 
-        <PlaceTimeP>{props.placeLocation}</PlaceTimeP>
-        <PlaceTimeP style={{ marginRight: "3px", marginLeft: "3px" }}>
-          /
-        </PlaceTimeP>
-        <PlaceTimeP>{props.placeTime}</PlaceTimeP>
-        <PlaceTimeP style={{ marginLeft: "8px" }}>
-          {props.placeCondition}
-        </PlaceTimeP>
+        <PlaceDetailP style={{ marginTop: "5px" }}>
+          {props.placeDetail}
+        </PlaceDetailP>
+
         <AvartarContainer>
           {props.placeParticipant.map((item, idx) => {
             if (idx < 4) {
@@ -61,7 +77,7 @@ export default function Place(props: Props) {
 }
 
 const PlaceContainer = styled.div`
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: center;
   margin-top: 25px;
@@ -80,8 +96,8 @@ const PlaceImg = styled.img`
 `;
 
 const PlaceDescription = styled.div`
-  width: 200px;
-  padding-left: 10px;
+  width: 205px;
+  padding-left: 16px;
   padding-top: 5px;
 `;
 
@@ -106,24 +122,33 @@ const PlaceTag = styled.div`
 
 const PlaceFull = styled.div`
   position: absolute;
-  background-color: gray;
+  background-color: ${colors.Black};
   width: 100%;
   height: 100%;
   opacity: 0.5;
-  border-radius: 15%;
+  border-radius: 5px;
   justify-content: center;
   display: flex;
   align-items: center;
-  p {
-    color: white;
-    font-weight: 800;
-  }
+`;
+const PlaceFullText = styled.div`
+  color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const AvartarContainer = styled.div`
   display: flex;
   align-items: center;
   position: relative;
+  margin-top: 17px;
   p {
     position: absolute;
     left: 110px;
@@ -137,14 +162,14 @@ const PlaceDetailP = styled.p`
   font-size: 10px;
 `;
 
-const PlaceTimeP = styled.span`
+const PlaceTimeSpan = styled.span`
   margin-top: 3px;
   font-size: 10px;
   color: ${colors.LightGray};
 `;
 
-const PlaceHeading = styled.h4`
+const PlaceHeading = styled.span`
   color: ${colors.StrongBlue};
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 500;
 `;
