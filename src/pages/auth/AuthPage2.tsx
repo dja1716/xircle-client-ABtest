@@ -27,7 +27,16 @@ import { useState } from "react";
 interface Props {}
 
 export default function AuthPage2(props: Props) {
-  const [isSelected1, setIsSelected1] = useState<boolean>(true);
+  const [gender, setGender] = useState<string | null>(null);
+  const [university, setUniversity] = useState<string | null>(null);
+
+  const HandleChangeUniversity = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    console.log(event.target.value);
+    setUniversity(event.target.value);
+  };
+
   return (
     <ContainerFlexColumn>
       <ContainerwithLeftRightMargin>
@@ -40,7 +49,12 @@ export default function AuthPage2(props: Props) {
             style={{ marginTop: "24px" }}
             type="text"
           />
-          <select id="" name="University" style={{ marginTop: "12px" }}>
+          <select
+            id=""
+            name="University"
+            style={{ marginTop: "12px" }}
+            onChange={HandleChangeUniversity}
+          >
             <option value="">학교</option>
             <option value="고려대학교">고려대학교</option>
             <option value="연세대학교">연세대학교</option>
@@ -59,9 +73,9 @@ export default function AuthPage2(props: Props) {
                 display: "flex",
                 alignItems: "center",
               }}
-              onClick={() => setIsSelected1(true)}
+              onClick={() => setGender("male")}
             >
-              {isSelected1 ? (
+              {gender === "male" ? (
                 <FontAwesomeIcon
                   icon={faCheckCircle}
                   color={colors.MidBlue}
@@ -83,9 +97,9 @@ export default function AuthPage2(props: Props) {
                 alignItems: "center",
                 marginLeft: "10px",
               }}
-              onClick={() => setIsSelected1(false)}
+              onClick={() => setGender("female")}
             >
-              {!isSelected1 ? (
+              {gender === "female" ? (
                 <FontAwesomeIcon
                   icon={faCheckCircle}
                   color={colors.MidBlue}

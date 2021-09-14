@@ -33,8 +33,8 @@ interface Props {}
 export default function PlacesPage(this: any, props: Props) {
   const [optionValue, SetOptionValue] = useState<string>(options[0].value);
 
-  const HandleSelectChange = (option: Option) => {
-    console.log(option.value);
+  const HandleChangeLocation = (option: Option) => {
+    //console.log(option.value);
     SetOptionValue(option.value);
   };
 
@@ -47,7 +47,7 @@ export default function PlacesPage(this: any, props: Props) {
               controlClassName="drop-down-className"
               options={options}
               value={options[0]}
-              onChange={HandleSelectChange}
+              onChange={HandleChangeLocation}
             />
           </div>
           <Link to={routes.request} style={{ textDecoration: "none" }}>
