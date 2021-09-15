@@ -54,9 +54,10 @@ export const GlobalStyles = createGlobalStyle`
    }
 
 
-   .checkbox {
-
-   }
+   input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 `;
 
 export const colors: Colors = {
@@ -90,12 +91,13 @@ export const ProcedureHeading = styled.div`
   align-items: center;
 `;
 
-export const MainBtn = styled.div`
+export const MainBtn = styled.button`
   width: 300px;
   margin-left: auto;
   margin-right: auto;
   height: 50px;
   background-color: #18a0fb;
+  border: none;
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -104,6 +106,7 @@ export const MainBtn = styled.div`
   box-shadow: rgba(75, 88, 208, 0.5) 0px 25px 20px -20px;
   font-weight: bold;
   color: white;
+  font-size: 16px;
   p {
     color: white;
   }

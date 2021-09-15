@@ -12,10 +12,7 @@ import BookingPage from "./pages/place/BookingPage";
 import BookingConfirmPage from "./pages/place/BookingConfirmPage";
 import MyXirclePage from "./pages/mypage/MyXirclePage";
 import ModifyProfilePage from "./pages/mypage/ModifyProfilePage";
-import AuthPage1 from "./pages/auth/AuthPage1";
-import AuthPage2 from "./pages/auth/AuthPage2";
-import AuthPage3 from "./pages/auth/AuthPage3";
-import AuthPage4 from "./pages/auth/AuthPage4";
+import AuthPage from "./pages/auth/AuthPage";
 
 function App() {
   return (
@@ -51,17 +48,8 @@ function App() {
             <Route path={routes.myprofilemodifypage}>
               <ModifyProfilePage />
             </Route>
-            <Route path={routes.auth1}>
-              <AuthPage1 />
-            </Route>
-            <Route path={routes.auth2}>
-              <AuthPage2 />
-            </Route>
-            <Route path={routes.auth3}>
-              <AuthPage3 />
-            </Route>
-            <Route path={routes.auth4}>
-              <AuthPage4 />
+            <Route path={routes.auth}>
+              <AuthPage />
             </Route>
           </Switch>
         </Router>

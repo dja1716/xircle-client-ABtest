@@ -13,7 +13,7 @@ import { feedDummyData } from "../../dummyResources/dummyData";
 import BottomNavBar from "../../components/shared/BottomNavBar";
 import { Link } from "react-router-dom";
 import routes from "../../Routes";
-import { useState } from "react";
+import { useState, Fragment } from "react";
 
 const options: Option[] = [
   {
@@ -63,24 +63,26 @@ export default function PlacesPage(this: any, props: Props) {
       </Header>
       {optionValue === "안암" ? (
         <>
-          {feedDummyData.map((item) => {
+          {feedDummyData.map((item, idx) => {
             return (
-              <Link
-                to={routes.place}
-                style={{ textDecoration: "none", color: colors.Black }}
-              >
-                <Place
-                  placeImgSrc={item.placeImgSrc}
-                  placeParticipant={item.feedParticipant}
-                  placeClosed={item.feedClosed}
-                  placeHeading={item.feedHeading}
-                  placeDetail={item.feedDetail}
-                  placeLocation={item.feedLocation}
-                  placeTime={item.feedTime}
-                  placeCondition={item.feedCondition}
-                  placeTag={item.feedTag}
-                ></Place>
-              </Link>
+              <Fragment key={idx}>
+                <Link
+                  to={routes.place}
+                  style={{ textDecoration: "none", color: colors.Black }}
+                >
+                  <Place
+                    placeImgSrc={item.placeImgSrc}
+                    placeParticipant={item.feedParticipant}
+                    placeClosed={item.feedClosed}
+                    placeHeading={item.feedHeading}
+                    placeDetail={item.feedDetail}
+                    placeLocation={item.feedLocation}
+                    placeTime={item.feedTime}
+                    placeCondition={item.feedCondition}
+                    placeTag={item.feedTag}
+                  ></Place>
+                </Link>
+              </Fragment>
             );
           })}
         </>

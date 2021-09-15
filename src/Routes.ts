@@ -8,10 +8,7 @@ const routes = {
   request: "/Request",
   myxirclepage: "/MyXirclePage",
   myprofilemodifypage: "/ProfileModifyPage",
-  auth1: "/Auth1",
-  auth2: "/Auth2",
-  auth3: "/Auth3",
-  auth4: "/Auth4",
+  auth: "/Auth",
 };
 
 export default routes;

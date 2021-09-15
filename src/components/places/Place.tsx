@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../Styles";
 import Avartar from "../shared/Avartar";
+import { Fragment } from "react";
 
 interface Props {
   placeImgSrc: string;
@@ -63,7 +64,11 @@ export default function Place(props: Props) {
         <AvartarContainer>
           {props.placeParticipant.map((item, idx) => {
             if (idx < 4) {
-              return <Avartar src={item} marginRight={"-5px"} />;
+              return (
+                <Fragment key={idx}>
+                  <Avartar src={item} marginRight={"-5px"} />
+                </Fragment>
+              );
             }
           })}
 
