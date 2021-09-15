@@ -105,9 +105,9 @@ export default function AuthPage3({
         <FontAwesomeIcon icon={faCheckCircle} color={colors.MidBlue} />
       </FlexDiv>
       {isSelected1 ? (
-        <NextButtonEnabled onClick={onNext}>시작하기</NextButtonEnabled>
+        <NextButtonEnabled onClick={onNext}>다음</NextButtonEnabled>
       ) : (
-        <NextButtonDisabled>시작하기</NextButtonDisabled>
+        <NextButtonDisabled>다음</NextButtonDisabled>
       )}
     </ContainerwithLeftRightMargin>
   );

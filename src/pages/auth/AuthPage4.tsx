@@ -162,7 +162,7 @@ export default function AuthPage4({
           style={{ position: "absolute", right: "0%" }}
         />
       </TextSpanDiv>
-      {isSelected2 && isSelected3 && isSelected4 && isSelected5 ? (
+      {state.agree1 && state.agree3 && state.agree3 ? (
         <Link
           to={routes.places}
           style={{ textDecoration: "none", color: colors.Black }}

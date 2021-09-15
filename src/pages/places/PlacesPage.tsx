@@ -17,6 +17,11 @@ import { useState, Fragment } from "react";
 
 const options: Option[] = [
   {
+    value: "전체",
+    label: "전체",
+    className: "drop-down-option",
+  },
+  {
     value: "안암",
     label: "안암근처",
     className: "drop-down-option",
@@ -61,7 +66,7 @@ export default function PlacesPage(this: any, props: Props) {
           취향이 통하는 대학친구들과 즐기는 공간
         </HeaderTextDescription>
       </Header>
-      {optionValue === "안암" ? (
+      {optionValue === "전체" ? (
         <>
           {feedDummyData.map((item, idx) => {
             return (

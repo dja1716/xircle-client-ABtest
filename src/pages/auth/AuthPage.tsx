@@ -157,6 +157,7 @@ function AuthPage(props: Props) {
     if (step < components.length) {
       setStep((step) => step + 1);
     } else {
+      // need to be updated
       history.push(routes.places);
     }
   };

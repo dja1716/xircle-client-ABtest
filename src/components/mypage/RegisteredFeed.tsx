@@ -40,7 +40,7 @@ const FeedContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 15px;
+  margin-top: 25px;
 `;
 
 const FeedLeftContainer = styled.div`
@@ -77,5 +77,5 @@ const FeedTimeSpan = styled.span`
 const FeedHeading = styled.h4`
   color: ${colors.StrongBlue};
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 500;
 `;

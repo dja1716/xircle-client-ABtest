@@ -13,6 +13,7 @@ import {
   BigTextArea,
   NextButtonDisabled,
   SpaceForNavBar,
+  NextButtonEnabled,
 } from "../../Styles";
 import {
   faCheckCircle,
@@ -35,8 +36,34 @@ export default function AuthPage2({
   dispatch,
   ...props
 }: Props) {
+  const univs: string[] = [
+    "고려대학교 재학",
+    "고려대학교 졸업",
+    "연세대학교 재학",
+    "연세대학교 졸업",
+  ];
+  const CheckAge = (age: number) => {
+    if (age >= 19 && age <= 40) {
+      return true;
+    }
+    return false;
+  };
   const Validate = () => {
-    
+    if (state.name.length <= 0 || state.name.length > 20) {
+      dispatch({ type: "setStage2Valid", payload: false });
+    } else if (!univs.includes(state.university)) {
+      dispatch({ type: "setStage2Valid", payload: false });
+    } else if (!CheckAge(Number(state.age))) {
+      dispatch({ type: "setStage2Valid", payload: false });
+    } else if (state.gender !== "male" && state.gender !== "female") {
+      dispatch({ type: "setStage2Valid", payload: false });
+    } else if (state.title.length === 0 || state.title.length > 8) {
+      dispatch({ type: "setStage2Valid", payload: false });
+    } else if (state.bio.length < 1) {
+      dispatch({ type: "setStage2Valid", payload: false });
+    } else {
+      dispatch({ type: "setStage2Valid", payload: true });
+    }
   };
 
   return (
@@ -53,24 +80,32 @@ export default function AuthPage2({
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             dispatch({ type: "setName", payload: e.target.value })
           }
+          onKeyUp={Validate}
         />
         <select
           id=""
           name="University"
           value={state.university}
           style={{ marginTop: "12px" }}
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-            dispatch({ type: "setUniversity", payload: e.target.value })
-          }
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+            dispatch({ type: "setUniversity", payload: e.target.value });
+            Validate();
+          }}
         >
           <option value="" style={{ color: colors.BareGray }}>
             학교
           </option>
-          <option value="고려대학교" style={{ color: colors.Black }}>
-            고려대학교
+          <option value="고려대학교 재학" style={{ color: colors.Black }}>
+            고려대학교 재학
           </option>
-          <option value="연세대학교" style={{ color: colors.Black }}>
-            연세대학교
+          <option value="고려대학교 졸업" style={{ color: colors.Black }}>
+            고려대학교 졸업
+          </option>
+          <option value="연세대학교 재학" style={{ color: colors.Black }}>
+            연세대학교 재학
+          </option>
+          <option value="연세대학교 졸업" style={{ color: colors.Black }}>
+            연세대학교 졸업
           </option>
         </select>
         <MidInput
@@ -82,7 +117,7 @@ export default function AuthPage2({
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             dispatch({ type: "setAge", payload: e.target.value })
           }
-          onKeyUp={() => console.log("keyUp")}
+          onKeyUp={Validate}
         ></MidInput>
         {/* <SubText>나이는 20초 20중 20후 30초 방식으로 표기가되요!</SubText> */}
         <FlexDiv style={{ justifyContent: "normal", marginTop: "20px" }}>
@@ -92,7 +127,10 @@ export default function AuthPage2({
               display: "flex",
               alignItems: "center",
             }}
-            onClick={() => dispatch({ type: "setGender", payload: "male" })}
+            onClick={() => {
+              dispatch({ type: "setGender", payload: "male" });
+              Validate();
+            }}
           >
             {state.gender === "male" ? (
               <FontAwesomeIcon
@@ -116,7 +154,10 @@ export default function AuthPage2({
               alignItems: "center",
               marginLeft: "10px",
             }}
-            onClick={() => dispatch({ type: "setGender", payload: "female" })}
+            onClick={() => {
+              dispatch({ type: "setGender", payload: "female" });
+              Validate();
+            }}
           >
             {state.gender === "female" ? (
               <FontAwesomeIcon
@@ -143,6 +184,7 @@ export default function AuthPage2({
             dispatch({ type: "setTitle", payload: e.target.value })
           }
           value={state.title}
+          onKeyUp={Validate}
         />
         <Label>간단한 자기소개</Label>
         <BigTextArea
@@ -154,6 +196,7 @@ export default function AuthPage2({
           onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
             dispatch({ type: "setBio", payload: e.target.value })
           }
+          onKeyUp={Validate}
         />
       </form>
       <p
@@ -176,7 +219,11 @@ export default function AuthPage2({
       </p>
       <SpaceForNavBar></SpaceForNavBar>
 
-      <NextButtonDisabled onClick={onNext}>다음</NextButtonDisabled>
+      {state.stage2Valid ? (
+        <NextButtonEnabled onClick={onNext}>다음</NextButtonEnabled>
+      ) : (
+        <NextButtonDisabled>다음</NextButtonDisabled>
+      )}
     </ContainerwithLeftRightMargin>
   );
 }
